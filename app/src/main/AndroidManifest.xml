@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ghost.soulmate">
-
+    <!--通过对AndroidManifest的配置,实现多个activity之间的跳转-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,6 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--此处直接写 . +  包名,使用时会自动在前面链接包名-->
+        <activity android:name=".CountTime">
+
+            <intent-filter>
+                <!--Category属性用于指定当前动作（Action）被执行的环境，默认为Default   亲测,没有的的话无法进行跳转-->
+                <category android:name="android.intent.category.DEFAULT"/>
+                <!--设置action,用于隐式Intent的使用 ， 可以实现不同app之间activity的跳转-->
+                <action android:name="com.ghost.soulmate.intent.CountTime"/>
+
+            </intent-filter>
+        </activity>
     </application>
+
 
 </manifest>

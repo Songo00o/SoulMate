@@ -19,7 +19,7 @@ public class CountTime extends Activity implements View.OnClickListener
     private Button getTime,start,stop;
     private TextView time;
     int i = 0  ; //用来传时间   作为中间变量
-    public static final String Action1 = "pet.ghost.com.soul.intent.CountTime";
+    public static final String Action_time = "com.ghost.soulmate.intent.CountTime";
     //将所有的控件都获取其相应的id   外加设置控件
     private void initView(){
         input = (EditText) findViewById(R.id.et_input);

@@ -25,7 +25,7 @@ public class MainActivity extends Activity{
         timer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CountTime.Action1));
+                startActivity(new Intent(CountTime.Action_time));
 
             }
         });
