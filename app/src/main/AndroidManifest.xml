@@ -20,11 +20,20 @@
         <activity android:name=".CountTime">
 
             <intent-filter>
-                <!--Category属性用于指定当前动作（Action）被执行的环境，默认为Default   亲测,没有的的话无法进行跳转-->
-                <category android:name="android.intent.category.DEFAULT"/>
                 <!--设置action,用于隐式Intent的使用 ， 可以实现不同app之间activity的跳转-->
                 <action android:name="com.ghost.soulmate.intent.CountTime"/>
+                <!--Category属性用于指定当前动作（Action）被执行的环境，默认为Default   亲测,没有的的话无法进行跳转-->
+                <category android:name="android.intent.category.DEFAULT"/>
 
+            </intent-filter>
+        </activity>
+
+        <!--计划模块activity组件启动条件-->
+        <activity android:name=".PlanActivity">
+            <intent-filter>
+                <action android:name="com.ghost.soulmate.intent.addPlan"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
     </application>
