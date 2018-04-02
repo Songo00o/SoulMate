@@ -2,48 +2,52 @@ package com.ghost.soulmate;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.ghost.soulmate.R;
+import java.util.Calendar;
 
 /**
  * Created by mingjie on 2018/3/25.
+ * changed by yunzhongxiaoma on 2018/4/1
  */
 
-public class CountTime extends Activity implements View.OnClickListener
-{   //先为控件起名字  -->  然后将其绑定起来
-    private EditText input;
-    private Button getTime,start,stop;
+public class CountTime extends Activity {
+    //先为控件起名字  -->  然后将其绑定起来
+    private Button stop;
     private TextView time;
-    int i = 0  ; //用来传时间   作为中间变量
+    int i = 0; // 用来传时间   作为中间变量
     public static final String Action_time = "com.ghost.soulmate.intent.CountTime";
-    //将所有的控件都获取其相应的id   外加设置控件
-    private void initView(){
-        input = (EditText) findViewById(R.id.et_input);
-        getTime = (Button)findViewById(R.id.btn_getTime);
-        start = (Button)findViewById(R.id.btn_start);
-        stop = (Button) findViewById(R.id.btn_stop);
-        time = (TextView) findViewById(R.id.tv_showtime);   // 按Ctrl + time确实可以显示其他地方有相同标识的,但是使用的只有当前layout中定义的属性
-        getTime.setOnClickListener(this);
-        start.setOnClickListener(this);
-        stop.setOnClickListener(this);
-    }
-    @Override
-    public void onClick(View view) { //给按钮添加监听时间
-        switch (view.getId()){
-            case R.id.btn_getTime:
-                time.setText(input.getText().toString()); //从输入框中获取相应的时间
-                i =  Integer.parseInt(input.getText().toString());        // 把获取到String 类型数值转化为int
-                break;
-        }
+    public int currentHour;
+    public int currentMinute;
 
-    }
     //设置启动  继承自acitivity
-    protected  void onCreate(Bundle saveInstanceState){
+    protected void onCreate(Bundle saveInstanceState) {
+        //将所有的控件都获取其相应的id   外加设置控件
         super.onCreate(saveInstanceState);
         setContentView(R.layout.activity_time);
+
+        stop = (Button) findViewById(R.id.btn_stop);
+        time = (TextView) findViewById(R.id.tv_countTime);   // 按Ctrl + time确实可以显示其他地方有相同标识的,但是使用的只有当前layout中定义的属性
+
+        // 放弃当前计划
+        stop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 取消线程执行（非一级功能：弹框确认是否停止）
+            }
+        });
+        
     }
+
+    // 获取当前系统时间
+    public void getCurrentHourAndMinute() {
+        Calendar calendar = Calendar.getInstance();
+        currentHour = calendar.get(Calendar.HOUR_OF_DAY);   // 当前小时
+        currentMinute = calendar.get(Calendar.MINUTE);  // 当前分钟
+        Log.v("currentTime...    ", String.valueOf(currentHour+":" + currentMinute));
+    };
+
 }
