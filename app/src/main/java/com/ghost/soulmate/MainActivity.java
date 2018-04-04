@@ -16,12 +16,14 @@ public class MainActivity extends Activity{
     public static final String Action_main = "android.intent.action.MAIN";
     ImageView cat;
     ImageButton feed;
+    Button btn_test;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cat = (ImageView)findViewById(R.id.ibtn_mainCat);
         feed = (ImageButton)findViewById(R.id.ibtn_Feed);
+        btn_test = findViewById(R.id.btn_test);
 
         //为按钮的单击事件绑定事件监听器       --此方法为匿名内部类
         cat.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +42,14 @@ public class MainActivity extends Activity{
                 Intent intent = new Intent(PlanActivity.Action_plan);
                 // 启动intent对应的Activity
                 startActivity(intent);
+            }
+        });
+
+        //测试模块
+        btn_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CountTest.Action_Test));
             }
         });
     }

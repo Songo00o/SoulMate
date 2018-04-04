@@ -11,31 +11,25 @@
         android:drawableLeft="@drawable/plan_title"
         android:maxLines="1"
         android:hint="@string/plan_title"
-        />
-     <TextView
+        android:ems="10">  <!--能够输入任务标题的最大长度为10个单位-->
+        <requestFocus/> <!--获取当前焦点值-->
+    </EditText>
+
+
+    <TextView
         android:id="@+id/tv_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/plan_calendar"
-        android:hint="@string/plan_period"
-        />
-    <EditText
-        android:id="@+id/et_remind"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:drawableLeft="@drawable/plan_clock"
-        android:maxLines="4"
-        android:hint="@string/plan_remind"
-        />
+        android:hint="@string/plan_period" />
     <EditText
         android:id="@+id/et_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/plan_description"
-        android:maxLines="4"
+        android:maxLines="1"
         android:hint="@string/plan_description"
         />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

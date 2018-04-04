@@ -12,13 +12,12 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--此处直接写 . +  包名,使用时会自动在前面链接包名-->
-        <activity android:name=".CountTime">
 
+        <!--倒计时模块actitivity的启动-->
+        <activity android:name=".CountTime"><!--此处直接写 . +  包名,使用时会自动在前面链接包名-->
             <intent-filter>
                 <!--设置action,用于隐式Intent的使用 ， 可以实现不同app之间activity的跳转-->
                 <action android:name="com.ghost.soulmate.intent.CountTime"/>
@@ -32,7 +31,14 @@
         <activity android:name=".PlanActivity">
             <intent-filter>
                 <action android:name="com.ghost.soulmate.intent.addPlan"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
 
+        <!--测试倒计时模块-->
+        <activity android:name=".CountTest">
+            <intent-filter>
+                <action android:name="com.ghost.soulmate.intent.CountTest"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
