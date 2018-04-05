@@ -1,13 +1,17 @@
 package com.ghost.soulmate;
 
 import android.app.Activity;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -20,12 +24,13 @@ import java.util.Calendar;
 public class CountTime extends Activity {
     //先为控件起名字  -->  然后将其绑定起来
     private Button stop;
-    private TextView time;
+    private TextView time, plan;
     private ProgressBar progress;
+    public static final  int Update = 0x001;
     int i = 0; // 用来传时间   作为中间变量
     public static final String Action_time = "com.ghost.soulmate.intent.CountTime";
-    public int currentHour;
-    public int currentMinute;
+    public int hours;
+    public int minutes;
 
     //设置启动  继承自acitivity
     protected void onCreate(Bundle saveInstanceState) {
@@ -36,23 +41,27 @@ public class CountTime extends Activity {
         stop = (Button) findViewById(R.id.btn_stop);
         progress = (ProgressBar) findViewById(R.id.pb_progress);
         time = (TextView) findViewById(R.id.tv_countTime);   // 按Ctrl + time确实可以显示其他地方有相同标识的,但是使用的只有当前layout中定义的属性
-
+        plan = findViewById(R.id.tv_plan);
         progress.setProgress(100);
-
-
-
+        
         //接收参数
         Intent intent = getIntent();
         //从Intent当中根据key获得value
-        Bundle date = intent.getExtras();
-        if(intent != null){
+        final Bundle date = intent.getExtras();
+        hours = date.getInt("hours");
+        minutes = date.getInt("minutes");
 
-            time.setText(String.format("%d小时:%d分钟",date.getInt("hours"),date.getInt("minutes")));
+//        Toast.makeText(CountTime.this,""+minutes,Toast.LENGTH_SHORT).show();  //进行测试,以及验证
+        if (intent != null) {
+//          time.setText(String.format("%d小时:%d分",date.getInt("hours"),date.getInt("minutes")));
+            String s = "" + date.getInt("minutes");
+            time.setText(s);
+            plan.setText(date.getString("plan"));
             //测试代码
-//            String s = i.getStringExtra("hours");
+//            String s = i.getStringExtra("hours");之前用这个一直报错,不明所以
 //            Toast.makeText(CountTime.this,s,Toast.LENGTH_SHORT).show();
-        }else {
-            Toast.makeText(CountTime.this,"啥也没",Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(CountTime.this, "啥也没", Toast.LENGTH_SHORT).show();
         }
 
         // 放弃当前计划
@@ -60,10 +69,42 @@ public class CountTime extends Activity {
             @Override
             public void onClick(View view) {
                 // 取消线程执行（非一级功能：弹框确认是否停止）
-                Intent intent = new Intent(CountTime.this,MainActivity.class);
+                Intent intent = new Intent(CountTime.this, MainActivity.class);
                 startActivity(intent);
             }
         });
-        
+        //创建主线程的Handler,复写其方法
+       final Handler myhandler = new Handler(){
+           public void handleMessage(Message msg){
+               super.handleMessage(msg);
+               if(msg.what == Update){
+                   time.setText(String.format("%d小时:%d分",msg.arg2,msg.arg1));
+               }
+           }
+       };
+       //设置子线程
+       new Thread(){
+           public void run(){
+               for(int j = hours; j>=0; j--){
+                   for(int i = minutes; i>=0 ; i--){
+                       Message msg = new Message();
+                       msg.what = Update;
+                       msg.arg1 = i;
+                       msg.arg2 = j;
+                       myhandler.sendMessage(msg);
+                       try{
+                           Thread.sleep(1000);
+                       }catch (InterruptedException e){
+                           e.printStackTrace();
+                       }
+                   }
+                   minutes = 59;
+               }
+//               Toast.makeText(CountTime.this,"小主,您很棒棒哦~~",Toast.LENGTH_SHORT).show();         //添加此行则报错,提示说是handler中包含了一个线程
+               startActivity(new Intent(CountTime.this,MainActivity.class));
+           }
+       }.start();
     }
 }
+
+

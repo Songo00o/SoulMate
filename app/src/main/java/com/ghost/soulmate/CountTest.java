@@ -60,7 +60,7 @@ public class CountTest  extends Activity implements View.OnClickListener {
 
     private Handler mHandler = new Handler(){
         public void handleMessage(Message msg) {
-            time.setText(msg.arg1+" ( * . * )");
+            time.setText(String.valueOf(msg.arg1));
             startTime();
         };
     };

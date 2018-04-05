@@ -26,6 +26,7 @@ public class PlanActivity extends AppCompatActivity {
     Button cancel;
     Button start;
     int hours_get,minutes_get;
+    String plan_get;
     public static final String Action_plan = "com.ghost.soulmate.intent.addPlan";
 
     @Override
@@ -55,10 +56,12 @@ public class PlanActivity extends AppCompatActivity {
             @Override
             public void onClick(View source) {
                 if (hours_get != 0 || minutes_get != 0 ) {  // 如果用户选过时间，继续
+                    plan_get = title.getText().toString();                                            //获取用户输入的计划
                     Intent intent = new Intent(PlanActivity.this,CountTime.class);
                      Bundle bundle = new Bundle();
                      bundle.putInt("hours",hours_get);
                      bundle.putInt("minutes",minutes_get);
+                     bundle.putString("plan",plan_get);
                      intent.putExtras(bundle );
 
 //                    i.putExtra("hours",hours_get);   进行简单的传值时,一直传不进去很是无奈
