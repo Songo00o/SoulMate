@@ -43,7 +43,7 @@ public class CountTime extends Activity {
         time = (TextView) findViewById(R.id.tv_countTime);   // 按Ctrl + time确实可以显示其他地方有相同标识的,但是使用的只有当前layout中定义的属性
         plan = findViewById(R.id.tv_plan);
         progress.setProgress(100);
-        
+
         //接收参数
         Intent intent = getIntent();
         //从Intent当中根据key获得value

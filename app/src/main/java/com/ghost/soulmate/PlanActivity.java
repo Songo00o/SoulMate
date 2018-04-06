@@ -22,7 +22,7 @@ import java.util.Calendar;
 public class PlanActivity extends AppCompatActivity {
     EditText title; // 任务标题
     TextView date;  // 预期完成时间
-    EditText description;    // 备注
+    EditText remind;    // 备注
     Button cancel;
     Button start;
     int hours_get,minutes_get;
@@ -36,7 +36,7 @@ public class PlanActivity extends AppCompatActivity {
 
         title = (EditText) findViewById(R.id.et_title);
         date = (TextView) findViewById(R.id.tv_date);
-        description = (EditText)findViewById(R.id.et_description);
+        remind = (EditText)findViewById(R.id.et_remind);
         cancel = (Button) findViewById(R.id.btn_cancel);
         start = (Button) findViewById(R.id.btn_start);
 
