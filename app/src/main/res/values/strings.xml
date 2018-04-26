@@ -17,8 +17,6 @@
 
     <!--time: plan之后的倒计时模块-->
     <string name="time_eating">主人，我好爱你，我开动了^.^ \n祝您接下来过得快乐</string>
-    <string name="time_end">距离任务结束还有</string>
     <string name="time_count">00小时:00分</string>
-    <string name="hours">hours</string>
 
 </resources>

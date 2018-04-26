@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circle="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<!--注意自定义组件使用要自己起一个名字 ,才能够使用，此处为 circle-->
+    <com.ghost.soulmate.custom.MyPercent
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        circle:percent_background_color="@color/Blue"
+        circle:percent_circle_gravity="center"
+        circle:percent_circle_progress="50"
+        circle:percent_circle_radius="50dp"
+        circle:percent_progress_color="@color/Green" />
+</LinearLayout>

@@ -9,7 +9,7 @@
         android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/plan_title"
+        android:drawableLeft="@drawable/feed_title"
         android:maxLines="1"
         android:hint="@string/plan_title"
         android:ems="10">  <!--能够输入任务标题的最大长度为10个单位-->
@@ -21,13 +21,13 @@
         android:id="@+id/tv_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/plan_clock"
+        android:drawableLeft="@drawable/feed_clock"
         android:hint="@string/plan_period" />
     <EditText
         android:id="@+id/et_remind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/plan_remind"
+        android:drawableLeft="@drawable/feed_remind"
         android:maxLines="1"
         android:hint="@string/plan_remind"
         />
@@ -42,7 +42,7 @@
             android:id="@+id/gif_wait"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/plan_wait"/>
+            android:src="@drawable/feed_wait"/>
         <TextView
             android:id="@+id/tv_preEat"
             android:layout_width="wrap_content"

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--自定义百分比控件-->
+    <declare-styleable name="PercentShow">  <!--name 就是属性集合的名字-->
+                    <!--属性集合编译后都会对应一个styleable对象,通过此对象获取TypeArray对象,通过键值对获取属性值-->
+        <!--添加属性-->
+        <attr name="percent_circle_gravity"> <!--圆形绘制的位置-->
+            <flag name="left" value="0"/>
+            <flag name="top" value="1"/>
+            <flag name="center" value="2"/> <!-- ????为啥把这放到中间 -->
+            <flag name="right" value="3"/>
+            <flag name="bottom" value="4"/>
+        </attr>
+        <attr name="percent_circle_radius" format="dimension"/> <!--圆形半径-->
+        <attr name="percent_circle_progress" format="integer"/> <!--当前进度值-->
+        <attr name="percent_progress_color" format="color"/>    <!--进度显示颜色-->
+        <attr name="percent_background_color" format="color"/>
+    </declare-styleable>
+
+    <!--自定义圆形进度条-->
+
+
+    <declare-styleable name="CircleProgressBar">  <!--属性集合名字 此处与引类名相同,也是系统认可的-->
+        <!--添加属性-->
+        <attr name="progress_radius" format="dimension"/>
+        <attr name="progress_color"  format="color"/>
+        <attr name="progress_radius_width" format="dimension"/>
+
+        <attr name="progress_incircle_color" format="color"/>
+        <attr name="progress_outcircle_color" format="color"/>
+        <attr name="progress_angle" format="integer"/>
+
+        <attr name="progress_text_color" format="color"/>
+    </declare-styleable>
+</resources>

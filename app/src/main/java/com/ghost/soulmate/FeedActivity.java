@@ -4,8 +4,6 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.util.TimeUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,13 +11,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.util.Calendar;
-
 /**
  * Created by yunzhongxiaoma on 2018/4/1.
  */
 
-public class PlanActivity extends AppCompatActivity {
+public class FeedActivity extends AppCompatActivity {
     EditText title; // 任务标题
     TextView date;  // 预期完成时间
     EditText remind;    // 备注
@@ -45,7 +41,7 @@ public class PlanActivity extends AppCompatActivity {
             @Override
             public void onClick(View source) {
                 // 启动intent对应的Activity
-                Intent intent = new Intent(PlanActivity.this, MainActivity.class);
+                Intent intent = new Intent(FeedActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();   // 结束当前Activity
             }
@@ -57,7 +53,7 @@ public class PlanActivity extends AppCompatActivity {
             public void onClick(View source) {
                 if (hours_get != 0 || minutes_get != 0 ) {  // 如果用户选过时间，继续
                     plan_get = title.getText().toString();                                            //获取用户输入的计划
-                    Intent intent = new Intent(PlanActivity.this,CountTime.class);
+                    Intent intent = new Intent(FeedActivity.this,CountTime.class);
                      Bundle bundle = new Bundle();
                      bundle.putInt("hours",hours_get);
                      bundle.putInt("minutes",minutes_get);
@@ -67,10 +63,10 @@ public class PlanActivity extends AppCompatActivity {
 //                    i.putExtra("hours",hours_get);   进行简单的传值时,一直传不进去很是无奈
 //                    i.putExtra("minutes",minutes_get);
                     startActivity(intent);
-
+                    finish();
 
                 } else {
-                    Toast.makeText(PlanActivity.this, "小主,您的时间还没定呢！囧rz=З",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FeedActivity.this, "小主,您的时间还没定呢！囧rz=З",Toast.LENGTH_SHORT).show();
                 }
 
             }

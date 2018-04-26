@@ -6,10 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
-
-import com.ghost.soulmate.R;
 
 public class MainActivity extends Activity{
     int[] jokes = {R.string.joke1, R.string.joke2, R.string.joke3, R.string.joke4, R.string.joke5};
@@ -40,7 +37,7 @@ public class MainActivity extends Activity{
         feed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PlanActivity.Action_plan);
+                Intent intent = new Intent(FeedActivity.Action_plan);
                 // 启动intent对应的Activity
                 startActivity(intent);
             }
@@ -50,7 +47,7 @@ public class MainActivity extends Activity{
         btn_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CountTest.Action_Test));
+                startActivity(new Intent(AnimationTest.Action_anim));
             }
         });
     }

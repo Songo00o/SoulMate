@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/big"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保持"/>
+        <Button
+            android:id="@+id/small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="复原"/>
+        <Button
+            android:id="@+id/beat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="心跳"/>
+
+    </LinearLayout>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="九尾狐"/>
+    <ImageView
+        android:id="@+id/test_fox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/test_fox"
+        android:stateListAnimator="@anim/my_anim"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="九尾狐"/>
+    <ImageView
+        android:id="@+id/heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/heart"
+        android:stateListAnimator="@anim/my_anim"/>
+</LinearLayout>

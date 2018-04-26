@@ -15,7 +15,7 @@
 
         <Button
             android:id="@+id/btn_test"
-            android:text="测试计时"
+            android:text="测试模块"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
